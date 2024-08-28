@@ -7,14 +7,15 @@ namespace ConsoleApp23
     {
         static void Main(string[] args)
         {
-            int[,] numbers = new int[3, 3];
+            int[,] numbers = new int[ 6, 5 ];
 
             Random random = new Random();
 
-            int summSecondString = 0;
-            int multiplyFirstColumn = 1;
-            int numberString = 1;
-            int numberColumn = 0;
+            int sumSpecifiedString = 0;
+            int multiplySpecifiedColumn = 1;
+            int indexString = 1;
+            int indexColumn = 0;
+            int indexOffset = 1;
 
             for (int i = 0; i < numbers.GetLength(0); i++)
             {
@@ -27,19 +28,19 @@ namespace ConsoleApp23
                 Console.WriteLine();
             }
 
+            for (int j = 0; j < numbers.GetLength(1); j++)
+            {
+                sumSpecifiedString += numbers[ indexString, j];
+            }
+
+            Console.WriteLine($"Сумма строки {indexString + indexOffset} равна {sumSpecifiedString}");
+
             for (int i = 0; i < numbers.GetLength(0); i++)
             {
-                summSecondString += numbers[numberString, i];
+                multiplySpecifiedColumn *= numbers[i, indexColumn];
             }
 
-            Console.WriteLine($"Сумма второй строки равна {summSecondString}");
-
-            for (int j = 0; j < numbers.GetLength(0); j++)
-            {
-                multiplyFirstColumn *= numbers[j, numberColumn];
-            }
-
-            Console.WriteLine($"Произведение первого столбца равно {multiplyFirstColumn}");
+            Console.WriteLine($"Произведение столбца {indexColumn + indexOffset} равно {multiplySpecifiedColumn}");
         }
     }
 }
