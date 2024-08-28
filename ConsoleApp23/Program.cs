@@ -7,33 +7,38 @@ namespace ConsoleApp23
     {
         static void Main(string[] args)
         {
-            int[,] array = new int[3, 3];
+            int[,] numbers = new int[3, 3];
 
             Random random = new Random();
 
             int summSecondString = 0;
             int multiplyFirstColumn = 1;
+            int numberString = 1;
+            int numberColumn = 0;
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < numbers.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < numbers.GetLength(1); j++)
                 {
-                    array[ i, j ] = random.Next( 1, 10);
-                    Console.Write(array[i, j] + " ");
+                    numbers[i, j] = random.Next(1, 10);
+                    Console.Write(numbers[i, j] + " ");
                 }
-            Console.WriteLine();
+
+                Console.WriteLine();
             }
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < numbers.GetLength(0); i++)
             {
-                summSecondString += array[1, i];
+                summSecondString += numbers[numberString, i];
             }
+
             Console.WriteLine($"Сумма второй строки равна {summSecondString}");
 
-            for (int j = 0; j < array.GetLength(0); j++)
+            for (int j = 0; j < numbers.GetLength(0); j++)
             {
-                multiplyFirstColumn *= array[j, 0];
+                multiplyFirstColumn *= numbers[j, numberColumn];
             }
+
             Console.WriteLine($"Произведение первого столбца равно {multiplyFirstColumn}");
         }
     }
